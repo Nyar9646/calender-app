@@ -3,8 +3,15 @@
   border-bottom: 1px solid #ccc;
   height: 18vh;
 }
-
 .date {
-  font-size: small;
-  text-align: center;
+  padding: 5px 0;
+  height: 24px;
+}
+.today {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: #1a73e8;
+  color: #fff;
 }

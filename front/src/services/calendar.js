@@ -14,3 +14,15 @@ export const createCalendar = () => {
       return firstDay.add(diffFromFirstDay, 'day')
     })
 }
+
+export const getToday = () => dayjs()
+
+export const isFirstDay = day => day.date() === 1
+
+export const isSameDay = (d1, d2) => {
+  return d1.date() === d2.date()
+}
+
+export const isSameMonth = (m1, m2) => {
+  return m1.month() === m2.month()
+}
