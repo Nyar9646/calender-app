@@ -1,3 +1,5 @@
+/** 表示にのみ責務をもつ component. props から渡った値の表示を行う */
+
 import React from "react";
 import { ImageList, Typography } from '@material-ui/core';
 import CalendarElement from '../CalendarElement'
@@ -8,6 +10,8 @@ const calendar = createCalendar()
 const days = ['日', '月', '火', '水', '木', '金', '土']
 
 const CalendarBoard = () => {
+  console.log(calendar)
+
   return (
     <div className="conteiner">
       <ImageList className={styles.grid} gap={0} cols={7} rowHeight="auto">
