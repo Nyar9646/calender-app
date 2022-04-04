@@ -3,8 +3,8 @@ import 'dayjs/locale/ja';
 
 dayjs.locale('ja')
 
-export const createCalendar = () => {
-  const firstDay = dayjs().startOf('month')
+export const createCalendar = month => {
+  const firstDay = getMonth(month)
   const firstDayIndex = firstDay.day()
 
   return Array(35)
@@ -13,6 +13,11 @@ export const createCalendar = () => {
       const diffFromFirstDay = i - firstDayIndex
       return firstDay.add(diffFromFirstDay, 'day')
     })
+}
+
+export const getMonth = ({year, month}) => {
+  // dayjs は不完全な日付形式でも他を0で埋めて取得可能
+  return dayjs(`${year}-${month}`)
 }
 
 export const getToday = () => dayjs()

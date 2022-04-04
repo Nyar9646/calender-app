@@ -1,15 +1,15 @@
-/** 表示にのみ責務をもつ component. props から渡った値の表示を行う */
+/** presentarion : 表示にのみ責務をもつ component. props から渡った値の表示を行う */
 
 import React from "react";
 import { ImageList, Typography } from '@material-ui/core';
 import CalendarElement from '../CalendarElement'
-import { createCalendar } from '../../services/calendar'
+// import { createCalendar } from '../../services/calendar'
 import * as styles from "./style.css"
 
-const calendar = createCalendar()
+// const calendar = createCalendar()
 const days = ['日', '月', '火', '水', '木', '金', '土']
 
-const CalendarBoard = () => {
+const CalendarBoard = ({ calendar }) => {
   console.log(calendar)
 
   return (
