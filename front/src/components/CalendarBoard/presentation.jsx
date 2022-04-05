@@ -10,8 +10,6 @@ import * as styles from "./style.css"
 const days = ['日', '月', '火', '水', '木', '金', '土']
 
 const CalendarBoard = ({ calendar }) => {
-  console.log(calendar)
-
   return (
     <div className="conteiner">
       <ImageList className={styles.grid} gap={0} cols={7} rowHeight="auto">
