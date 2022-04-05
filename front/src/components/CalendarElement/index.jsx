@@ -1,13 +1,15 @@
 import React from "react";
 import * as styles from "./style.css"
 import { Typography } from "@material-ui/core";
-import { getToday, isFirstDay, isSameDay, isSameMonth } from "../../services/calendar";
+import { getToday, isFirstDay, isSameDay, isSameMonth, getMonth } from "../../services/calendar";
 
-const CalendarElement = ({ day }) => {
+const CalendarElement = ({ day, month }) => {
   const today = getToday()
   const format = isFirstDay(day) ? "M月D日" : "D"
   const isToday = isSameDay(day, today)
-  const isCurrentMonth = isSameMonth(day, today)
+
+  const currrentMonth = getMonth(month)
+  const isCurrentMonth = isSameMonth(day, currrentMonth)
 
   return (
     <div className={styles.element}>

@@ -6,7 +6,8 @@ import CalendarBoard from "./presentation"
 
 const mapStateToProps = state => ({ calendar: state.calendar })
 
-const margeProps = stateProps => ({
+const margeProps = (stateProps) => ({
+  month: stateProps.calendar,
   calendar: createCalendar(stateProps.calendar)
 })
 

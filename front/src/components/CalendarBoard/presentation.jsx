@@ -3,13 +3,11 @@
 import React from "react";
 import { ImageList, Typography } from '@material-ui/core';
 import CalendarElement from '../CalendarElement'
-// import { createCalendar } from '../../services/calendar'
 import * as styles from "./style.css"
 
-// const calendar = createCalendar()
 const days = ['日', '月', '火', '水', '木', '金', '土']
 
-const CalendarBoard = ({ calendar }) => {
+const CalendarBoard = ({ calendar, month }) => {
   return (
     <div className="conteiner">
       <ImageList className={styles.grid} gap={0} cols={7} rowHeight="auto">
@@ -26,7 +24,7 @@ const CalendarBoard = ({ calendar }) => {
         ))}
         {calendar.map(c => (
           <li key={c.toISOString()}>
-            <CalendarElement day={c} />
+            <CalendarElement day={c} month={month} />
           </li>
         ))}
       </ImageList>
