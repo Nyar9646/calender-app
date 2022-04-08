@@ -6,9 +6,10 @@ import { Provider } from "react-redux";
 import DayjsUtils from "@date-io/dayjs"
 import { MuiPickersUtilsProvider } from "@material-ui/pickers"
 
+import rootReducer from "./redux/rootReducer";
 import CalendarBoard from "./components/CalendarBoard/container";
 import Navigation from "./components/Navigation/container";
-import rootReducer from "./redux/rootReducer";
+import AddScheduleDialog from "./components/AddScheduleDialog/container";
 
 const store = createStore(rootReducer)
 
@@ -17,6 +18,7 @@ const App = () => (
     <MuiPickersUtilsProvider utils={DayjsUtils}>
       <Navigation />
       <CalendarBoard />
+      <AddScheduleDialog />
     </MuiPickersUtilsProvider>
   </Provider>
 );
