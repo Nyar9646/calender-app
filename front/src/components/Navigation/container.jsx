@@ -3,6 +3,10 @@ import { connect } from "react-redux"
 import { getNextMonth, getPreviousMonth, getMonth, formatMonth } from "../../services/calendar";
 import { calendarSetMonth } from "../../redux/calendar/actions";
 
+/** 1. state の参照が同じか(=== 比較) */
+
+/** 2. mapStateToProps を計算 */
+/** 3. 前回の mapStateToProps と結果が同じか(shallow 比較) */
 const mapStateToProps = state => ({ calendar: state.calendar })
 
 const mapDispatchToProps = dispatch => ({
@@ -11,6 +15,9 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
+/** 4. mergeProps を計算 */
+/** 5. 前回の mergeProps と結果が同じか(mergeProps 未定義 ? ===比較 : shallow比較) */
+/** mapDispatchToProps の関数に、component を介さず state を渡す */
 const mergeProps = (stateProps, dispatchProps) => ({
   // month という state に redux の state から day.js に変換して props として提供
   month: getMonth(stateProps.calendar),
