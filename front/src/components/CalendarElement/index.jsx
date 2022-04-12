@@ -1,15 +1,19 @@
 import React from "react";
-import * as styles from "./style.css"
 import { Typography } from "@material-ui/core";
-import { getToday, isFirstDay, isSameDay, isSameMonth, getMonth } from "../../services/calendar";
+import * as styles from "./style.css"
+import Schedule from "../Schedule";
+import {
+  getToday,
+  isFirstDay,
+  isSameDay,
+  isSameMonth,
+  getMonth
+} from "../../services/calendar";
 
-const CalendarElement = ({ day, month }) => {
-  const today = getToday()
+const CalendarElement = ({ day, month, schedules }) => {
   const format = isFirstDay(day) ? "M月D日" : "D"
-  const isToday = isSameDay(day, today)
-
-  const currrentMonth = getMonth(month)
-  const isCurrentMonth = isSameMonth(day, currrentMonth)
+  const isToday = isSameDay(day, getToday())
+  const isCurrentMonth = isSameMonth(day, getMonth(month))
 
   return (
     <div className={styles.element}>
@@ -24,6 +28,11 @@ const CalendarElement = ({ day, month }) => {
           {day.format(format)}
         </span>
       </Typography>
+      <div className={styles.schedules}>
+        {schedules.map(e => (
+          <Schedule key={e.id} schedule={e} />
+        ))}
+      </div>
     </div>
   )
 }

@@ -12,7 +12,6 @@ const CalendarBoard = ({
   month,
   openAddScheduleDialog
 }) => {
-  console.log(calendar)
   return (
     <div className="conteiner">
       <ImageList className={styles.grid} gap={0} cols={7} rowHeight="auto">
