@@ -10,9 +10,9 @@ const days = ['日', '月', '火', '水', '木', '金', '土']
 const CalendarBoard = ({
   calendar,
   month,
-  openAddScheduleDialog,
-  schedules
+  openAddScheduleDialog
 }) => {
+  console.log(calendar)
   return (
     <div className="conteiner">
       <ImageList className={styles.grid} gap={0} cols={7} rowHeight="auto">
@@ -28,8 +28,8 @@ const CalendarBoard = ({
           </li>
         ))}
         {calendar.map(c => (
-          <li key={c.toISOString()} onClick={() => openAddScheduleDialog(c)}>
-            <CalendarElement day={c} month={month} />
+          <li key={c.date.toISOString()} onClick={() => openAddScheduleDialog(c.date)}>
+            <CalendarElement day={c.date} month={month} schedules={c.schedules} />
           </li>
         ))}
       </ImageList>
