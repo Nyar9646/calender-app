@@ -10,7 +10,8 @@ const days = ['日', '月', '火', '水', '木', '金', '土']
 const CalendarBoard = ({
   calendar,
   month,
-  openAddScheduleDialog
+  openAddScheduleDialog,
+  openCurrentScheduleDialog
 }) => {
   return (
     <div className="conteiner">
@@ -28,7 +29,12 @@ const CalendarBoard = ({
         ))}
         {calendar.map(c => (
           <li key={c.date.toISOString()} onClick={() => openAddScheduleDialog(c.date)}>
-            <CalendarElement day={c.date} month={month} schedules={c.schedules} />
+            <CalendarElement
+              day={c.date}
+              month={month}
+              schedules={c.schedules}
+              onClickSchedule={openCurrentScheduleDialog}
+            />
           </li>
         ))}
       </ImageList>
